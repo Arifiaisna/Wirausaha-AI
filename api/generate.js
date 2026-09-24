@@ -23,9 +23,9 @@ Jawab dalam Bahasa Indonesia yang sederhana. Jangan menjanjikan bahwa ide ini pa
 <h4>Contoh promosi</h4><p>...</p>
 Jangan gunakan markdown, hanya HTML.`;
 
-    const r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + key, {
+    const r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent", {
       method:"POST",
-      headers:{"Content-Type":"application/json"},
+      headers:{"Content-Type":"application/json", "x-goog-api-key": key},
       body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})
     });
     const data = await r.json();
